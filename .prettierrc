@@ -1,0 +1,11 @@
+{
+  "semi": false,
+  "singleQuote": false,
+  "max_line_length": 150,
+  "printWidth": 150,
+  "bracketSameLine": true,
+  "arrowParens": "avoid",
+  "trailingComma" : "none",
+  "bracketSpacing": true,
+  "quoteProps": "as-needed"
+}
