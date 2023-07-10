@@ -3,7 +3,7 @@
     "outDir": "./dist/",
     // Подсвечивает все места где не указан тип, но можно указать any как тип
     "noImplicitAny": true,
-    "module": "es6",
+    "module": "esnext",
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
