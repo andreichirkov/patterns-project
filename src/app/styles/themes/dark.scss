@@ -1,6 +1,10 @@
 .app.dark {
   --bg-color: dimgray;
+  --inverted-bg-color: azure;
 
   --primary-color: lightcoral; // Цвет текста заголовка
   --secondary-color: lightpink; // Цвет текста под заголовком
+
+  --inverted-primary-color: chocolate;
+  --inverted-secondary-color: cornflowerblue;
 }
