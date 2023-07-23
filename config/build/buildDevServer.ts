@@ -6,6 +6,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
     port: options.port,
     open: true,
     // Чтобы можно было зайти в приложение с любого роута
-    historyApiFallback: true
+    historyApiFallback: true,
+    hot: true
   }
 }
