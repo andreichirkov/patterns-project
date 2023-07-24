@@ -4,7 +4,7 @@ module.exports = {
     es2021: true
   },
   parser: "@typescript-eslint/parser",
-  extends: ["plugin:react/recommended", "airbnb"],
+  extends: ["plugin:react/recommended", "plugin:i18next/recommended", "airbnb"],
   overrides: [
     {
       env: {
@@ -20,7 +20,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module"
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "i18next"],
   rules: {
     "react/react-in-jsx-scope": "off",
     "react/jsx-indent": [2, 2, { indentLogicalExpressions: true }],
@@ -40,7 +40,8 @@ module.exports = {
     "arrow-parens": "off",
     "import/extensions": "off",
     "import/no-extraneous-dependencies": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "i18next/no-literal-string": ["error", { markupOnly: true }]
   },
   globals: {
     __IS_DEV__: true
