@@ -10,6 +10,6 @@ describe("Кнопку тестируем", () => {
   test("Тест кнопки с классом", () => {
     render(<Button theme={ThemeButton.CLEAR}>TEST</Button>)
     expect(screen.getByText("TEST")).toHaveClass("clear")
-    screen.debug()
+    // screen.debug()
   })
 })
