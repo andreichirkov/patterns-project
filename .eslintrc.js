@@ -32,7 +32,7 @@ module.exports = {
     "import/no-unresolved": "off",
     "no-unused-vars": "warn",
     "react/require-default-props": "off",
-    "react/jsx-props-no-spreading": "warn",
+    "react/jsx-props-no-spreading": "warn", // можно поставить off
     "react/function-component-definition": "off",
     "no-shadow": "off",
     "import/prefer-default-export": "off",
@@ -56,7 +56,8 @@ module.exports = {
       ignoreComments: true,
       code: 100
     }],
-    "no-console": "off"
+    "no-console": "off",
+    "object-curly-newline": "off",
   },
   globals: {
     __IS_DEV__: true

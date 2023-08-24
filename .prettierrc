@@ -1,7 +1,7 @@
 {
   "semi": false,
   "singleQuote": false,
-  "max_line_length": 150,
+  "max_line_length": 100,
   "bracketSameLine": true,
   "arrowParens": "avoid",
   "trailingComma" : "none",
