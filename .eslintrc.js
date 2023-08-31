@@ -24,7 +24,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module"
   },
-  plugins: ["react", "@typescript-eslint", "i18next"],
+  plugins: ["react", "@typescript-eslint", "i18next", "react-hooks"],
   rules: {
     "react/react-in-jsx-scope": "off",
     "react/jsx-indent": [2, 2, { indentLogicalExpressions: true }],
@@ -52,12 +52,19 @@ module.exports = {
         ignoreAttribute: ["data-testid", "to"]
       }
     ],
-    "max-len": ["error", {
-      ignoreComments: true,
-      code: 100
-    }],
+    "max-len": [
+      "error",
+      {
+        ignoreComments: true,
+        code: 100
+      }
+    ],
     "no-console": "off",
     "object-curly-newline": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error"
   },
   globals: {
     __IS_DEV__: true
