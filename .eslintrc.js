@@ -11,9 +11,10 @@ module.exports = {
       env: {
         node: true
       },
-      files: [".eslintrc.{js,cjs}", "**/src/**/*.test.{ts,tsx}"],
+      files: [".eslintrc.{js,cjs}", "**/src/**/*.{test,stories}.{ts,tsx}"],
       rules: {
-        "i18next/no-literal-string": "off"
+        "i18next/no-literal-string": "off",
+        "max-len": "off"
       },
       parserOptions: {
         sourceType: "script"
