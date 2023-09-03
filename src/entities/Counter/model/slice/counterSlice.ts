@@ -9,6 +9,7 @@ export const counterSlice = createSlice({
   name: "counter",
   initialState,
   reducers: {
+    // Почему то без явного указания стейта не понимает
     increment: (state: CounterSchema) => {
       state.value += 1
     },
@@ -18,6 +19,5 @@ export const counterSlice = createSlice({
   }
 })
 
-// Action creators are generated for each case reducer function
 export const { actions: counterActions } = counterSlice
 export const { reducer: counterReducer } = counterSlice
