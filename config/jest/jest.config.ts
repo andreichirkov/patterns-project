@@ -6,6 +6,10 @@
 import path from "path"
 
 export default {
+  globals: {
+    // Переменная должна назваться так же как в webpack, чтобы не было путаницы
+    __IS_DEV__: true
+  },
   clearMocks: true,
   testEnvironment: "jsdom",
   coveragePathIgnorePatterns: ["\\\\node_modules\\\\"],
