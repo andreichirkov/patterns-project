@@ -10,5 +10,7 @@
   "О сайте": "About",
   "Войти": "Login",
   "Увеличение": "Increment",
-  "Уменьшение": "Decrement"
+  "Уменьшение": "Decrement",
+  "Введите имя пользователя": "Return username",
+  "Введите пароль": "Return password"
 }
