@@ -4,7 +4,9 @@
 @import "./themes/dark";
 
 // app_modal использует Телепорт
-.app, .app_modal {
+
+.app,
+.app_modal {
   font: var(--font-m);
   color: var(--primary-color);
 }
