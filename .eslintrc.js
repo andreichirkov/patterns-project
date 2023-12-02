@@ -39,7 +39,7 @@ module.exports = {
     "import/prefer-default-export": "off",
     "comma-dangle": "off",
     semi: "off",
-    quotes: ["warn", "double"],
+    quotes: ["warn", "single"],
     "jsx-closing-bracket-location": "off",
     "react/jsx-closing-bracket-location": "off",
     "arrow-parens": "off",
