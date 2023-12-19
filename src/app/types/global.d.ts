@@ -1,4 +1,4 @@
-declare module "*.scss" {
+declare module '*.scss' {
   interface IClassNames {
     [className: string]: string
   }
@@ -7,10 +7,10 @@ declare module "*.scss" {
   export = classnames
 }
 
-declare module "*.png"
-declare module "*.jpg"
-declare module "*.jpeg"
-declare module "*.svg" {
+declare module '*.png'
+declare module '*.jpg'
+declare module '*.jpeg'
+declare module '*.svg' {
   // eslint-disable-next-line no-undef
   const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>
   export default content

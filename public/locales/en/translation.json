@@ -12,5 +12,7 @@
   "Увеличение": "Increment",
   "Уменьшение": "Decrement",
   "Введите имя пользователя": "Return username",
-  "Введите пароль": "Return password"
+  "Введите пароль": "Return password",
+  "Форма авторизации": "Auth form",
+  "Вы ввели неверный логин или пароль": "login or pass have error"
 }
