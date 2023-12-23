@@ -9,6 +9,7 @@ import { loginByUsername } from '../../model/services/loginByUsername/loginByUse
 import { getLoginState } from '../../model/selectors/getLoginState/getLoginState'
 import { loginActions } from '../../model/slice/loginSlice'
 import cls from './LoginForm.module.scss'
+import i18n from 'shared/config/i18n/i18n'
 
 interface LoginFormProps {
   className?: string
@@ -40,7 +41,12 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
       <Text title={t('Форма авторизации')} />
-      {error && <Text text={error} theme={TextTheme.ERROR} />}
+      {error && (
+        <Text
+          text={i18n.t('Вы ввели неверный логин или пароль')}
+          theme={TextTheme.ERROR}
+        />
+      )}
       <Input
         autofocus
         type="text"
