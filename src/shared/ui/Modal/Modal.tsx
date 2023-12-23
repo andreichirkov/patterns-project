@@ -1,20 +1,20 @@
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from 'shared/lib/classNames/classNames'
 import React, {
   ReactNode,
   useCallback,
   useEffect,
   useRef,
   useState
-} from "react"
-import { Portal } from "shared/ui/Portal/Portal"
-import { useTheme } from "app/providers/ThemeProvider"
-import cls from "./Modal.module.scss"
+} from 'react'
+import { Portal } from 'shared/ui/Portal/Portal'
+import { useTheme } from 'app/providers/ThemeProvider'
+import cls from './Modal.module.scss'
 
 interface ModalProps {
   className?: string
   children?: ReactNode
   isOpen?: boolean
-  onClose?: () => void,
+  onClose?: () => void
   lazy: boolean
 }
 
@@ -28,7 +28,7 @@ export const Modal = (props: ModalProps) => {
   const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined)
   const { theme } = useTheme()
 
-  // Этот useEffect управляет монтирование компонента
+  // Этот useEffect управляет монтированием компонента
   useEffect(() => {
     if (isOpen) {
       setIsMounted(true)
@@ -47,7 +47,7 @@ export const Modal = (props: ModalProps) => {
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+      if (e.key === 'Escape') {
         closeHandler()
       }
     },
@@ -61,12 +61,12 @@ export const Modal = (props: ModalProps) => {
   // Этот useEffect управляет слушателями событий
   useEffect(() => {
     if (isOpen) {
-      window.addEventListener("keydown", onKeyDown)
+      window.addEventListener('keydown', onKeyDown)
     }
 
     return () => {
       clearTimeout(timerRef.current)
-      window.removeEventListener("keydown", onKeyDown)
+      window.removeEventListener('keydown', onKeyDown)
     }
   }, [isOpen, onKeyDown])
 
@@ -86,7 +86,7 @@ export const Modal = (props: ModalProps) => {
         className={classNames(cls.Modal, mods, [
           className,
           theme,
-          "app_modal"
+          'app_modal'
         ])}>
         <div className={cls.overlay} onClick={closeHandler}>
           <div className={cls.content} onClick={onContentClick}>

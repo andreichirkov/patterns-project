@@ -1,9 +1,9 @@
-import { classNames } from "shared/lib/classNames/classNames"
-import { useTranslation } from "react-i18next"
-import { Button, ButtonTheme } from "shared/ui/Button/Button"
-import { useCallback, useState } from "react"
-import { LoginModal } from "features/AuthByUsername"
-import cls from "./Navbar.module.scss"
+import { classNames } from 'shared/lib/classNames/classNames'
+import { useTranslation } from 'react-i18next'
+import { Button, ButtonTheme } from 'shared/ui/Button/Button'
+import { useCallback, useState } from 'react'
+import { LoginModal } from 'features/AuthByUsername'
+import cls from './Navbar.module.scss'
 
 interface NavbarProps {
   className?: string
@@ -27,7 +27,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         className={cls.links}
         theme={ButtonTheme.CLEAR_INVERTED}
         onClick={onShowModal}>
-        {t("Войти")}
+        {t('Войти')}
       </Button>
 
       <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
