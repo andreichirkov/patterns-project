@@ -14,5 +14,6 @@
   "Введите имя пользователя": "Return username",
   "Введите пароль": "Return password",
   "Форма авторизации": "Auth form",
-  "Вы ввели неверный логин или пароль": "login or pass have error"
+  "Вы ввели неверный логин или пароль": "login or pass have error",
+  "Выйти": "Выйти"
 }
