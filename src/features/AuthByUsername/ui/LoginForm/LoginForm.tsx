@@ -6,19 +6,30 @@ import { memo, useCallback } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Text, TextTheme } from 'shared/ui/Text/Text'
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername'
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState'
-import { loginActions } from '../../model/slice/loginSlice'
+import { loginActions, loginReducer } from "../../model/slice/loginSlice"
 import cls from './LoginForm.module.scss'
 import i18n from 'shared/config/i18n/i18n'
+import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader"
+import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername"
+import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword"
+import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading"
+import { getLoginError } from "../../model/selectors/getLoginError/getLoginError"
 
-interface LoginFormProps {
+const initialReducers: ReducersList = {
+  loginForm: loginReducer,
+};
+
+export interface LoginFormProps {
   className?: string
 }
 
-export const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation()
   const dispatch = useDispatch()
-  const { username, password, isLoading, error } = useSelector(getLoginState)
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginIsLoading);
+  const error = useSelector(getLoginError);
 
   const onChangeUsername = useCallback(
     (value: string) => {
@@ -39,6 +50,10 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
   }, [dispatch, password, username])
 
   return (
+    <DynamicModuleLoader
+      removeAfterUnmount
+      reducers={initialReducers}
+    >
     <div className={classNames(cls.LoginForm, {}, [className])}>
       <Text title={t('Форма авторизации')} />
       {error && (
@@ -70,5 +85,9 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
         {t('Войти')}
       </Button>
     </div>
+    </DynamicModuleLoader>
   )
+
 })
+
+export default LoginForm;

@@ -3,7 +3,7 @@
     "outDir": "./dist/",
     // Подсвечивает все места где не указан тип, но можно указать any как тип
     "noImplicitAny": true,
-    "module": "esnext",
+    "module": "ESNext",
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
@@ -25,7 +25,14 @@
     // import * as React from 'react';
     // можно писать такой
     // import React from 'react';
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "decorators",
+      "dom",
+      "esnext", //???
+      "scripthost",
+      "es2015.promise"
+    ]
   },
   "ts-node": {
     "compilerOptions": {
@@ -35,6 +42,6 @@
   "include": [
     "./config/jest/setupTests.ts",
     "./src/**/*.ts",
-    "./src/**/*.tsx",
+    "./src/**/*.tsx"
   ]
 }
