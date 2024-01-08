@@ -19,6 +19,7 @@ export const loginByUsername = createAsyncThunk<
       authData
     )
 
+    // Получается если тут выплевывать ошибку, то catch будет с этой же ошибкой
     if (!response.data) {
       throw new Error()
     }
@@ -27,6 +28,8 @@ export const loginByUsername = createAsyncThunk<
     thunkAPI.dispatch(userActions.setAuthData(response.data))
 
     return response.data
+
+    // Вот тут та выплюнутая ошибка сверху
   } catch (e) {
     console.log(e)
     return thunkAPI.rejectWithValue(
