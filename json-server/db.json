@@ -13,15 +13,22 @@
       "postId": "1"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  },
   "users": [
     {
       "id": "1",
       "username": "admin",
       "password": "123"
     }
-  ]
+  ],
+  "profile": {
+    "first": "Andrei",
+    "lastname": "Chirkov",
+    "age": "33",
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "SPB",
+    "username": "andrei.chirkov",
+    "avatar": "https://litmarket.ru/storage/avatars/579205_1688157851_649f3e9bec8c1.jpg"
+  }
 }
 

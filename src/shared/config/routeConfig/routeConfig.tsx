@@ -1,20 +1,27 @@
-import { RouteProps } from "react-router-dom"
-import { MainPage } from "pages/MainPage"
-import { AboutPage } from "pages/AboutPage"
-import { NotFoundPage } from "pages/NotFoundPage"
+import { RouteProps } from 'react-router-dom'
+import { MainPage } from 'pages/MainPage'
+import { AboutPage } from 'pages/AboutPage'
+import { NotFoundPage } from 'pages/NotFoundPage'
+import { ProfilePage } from "pages/ProfilePage";
+
 
 export enum AppRoutes {
-  MAIN = "main",
-  ABOUT = "about",
-  NOT_FOUND = "not_found"
+  MAIN = 'main',
+  ABOUT = 'about',
+  PROFILE = 'profile',
+
+  // Last Page
+  NOT_FOUND = 'not_found'
 }
 
 /* Такая конструкция, чтобы явно соблюдать Enum */
 export const RoutePath: Record<AppRoutes, string> = {
-  [AppRoutes.MAIN]: "/",
-  [AppRoutes.ABOUT]: "/about",
+  [AppRoutes.MAIN]: '/',
+  [AppRoutes.ABOUT]: '/about',
+  [AppRoutes.PROFILE]: '/profile',
+
   // Последний роут для ненайденных страниц
-  [AppRoutes.NOT_FOUND]: "*"
+  [AppRoutes.NOT_FOUND]: '*'
 }
 
 // Пример: ключ: main, внутри: объект пропса роута ({path: /, element: JSX.El})
@@ -27,6 +34,12 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     path: RoutePath.about,
     element: <AboutPage />
   },
+  [AppRoutes.PROFILE]: {
+    path: RoutePath.profile,
+    element: <ProfilePage />
+  },
+
+  // Last Page
   [AppRoutes.NOT_FOUND]: {
     path: RoutePath.not_found,
     element: <NotFoundPage />
