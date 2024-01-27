@@ -11,6 +11,9 @@ import { UserSchema } from 'entities/User'
 import { ProfileSchema } from "entities/Profile";
 
 import { LoginSchema } from 'features/AuthByUsername'
+import { AxiosInstance } from "axios";
+import { To } from "@remix-run/router";
+import { NavigateOptions } from "react-router/dist/lib/context";
 
 export interface StateSchema {
   counter: CounterSchema
@@ -33,3 +36,45 @@ export interface ReducerManager {
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager
 }
+
+export interface ThunkExtraArg {
+  api: AxiosInstance
+  navigate: (to: To, options?: NavigateOptions) => void
+}
+
+// Меняестся здесть только Реджект Вэлью
+export interface ThinkConfig<T> {
+  rejectValue: T,
+  extra: ThunkExtraArg
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
