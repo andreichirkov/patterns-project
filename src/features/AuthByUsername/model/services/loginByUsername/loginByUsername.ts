@@ -9,8 +9,8 @@ interface LoginByUsernameProps {
 }
 
 export const loginByUsername = createAsyncThunk<
-  User,
-  LoginByUsernameProps,
+  User, // что вернем из функции
+  LoginByUsernameProps, // что принимает на вход функция
   ThinkConfig<string>
 >('login/loginByUsername', async (authData, thunkAPI) => {
   const { dispatch, extra, rejectWithValue } = thunkAPI

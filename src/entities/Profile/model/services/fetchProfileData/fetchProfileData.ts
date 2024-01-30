@@ -3,8 +3,8 @@ import { ThinkConfig } from 'app/providers/StoreProvider'
 import { Profile } from '../../types/profile'
 
 export const fetchProfileData = createAsyncThunk<
-  Profile,
-  void,
+  Profile, // что вернем из функции
+  void, // что принимает на вход функция
   ThinkConfig<string>
 >('profile/loginByUsername', async (_, thunkAPI) => {
   const { extra, rejectWithValue } = thunkAPI

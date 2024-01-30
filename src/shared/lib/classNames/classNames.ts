@@ -1,15 +1,16 @@
-type Mods = Record<string, boolean | string>
+export type Mods = Record<string, boolean | string | undefined>
 
 // Пример
 const obj: Mods = {
   hovered: true,
-  keke: false
+  keke: 'false',
+  lol: undefined,
 }
 
 export function classNames(
   cls: string,
   mods: Mods = {},
-  additional: string[] = []
+  additional: Array<string | undefined> = []
 ): string {
   return [
     cls,
