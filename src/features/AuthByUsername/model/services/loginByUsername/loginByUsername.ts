@@ -30,7 +30,7 @@ export const loginByUsername = createAsyncThunk<
 
     // Вот тут та выплюнутая ошибка сверху
   } catch (e) {
-    console.log(e)
+    // console.log(e)
     return rejectWithValue('error')
   }
 })
