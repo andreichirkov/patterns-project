@@ -1,4 +1,4 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit'
+import { configureStore, Reducer, ReducersMapObject } from "@reduxjs/toolkit";
 import { counterReducer } from 'entities/Counter'
 import { userReducer } from 'entities/User'
 import { StateSchema, ThunkExtraArg } from "./StateSchema";
@@ -6,6 +6,7 @@ import { createReducerManager } from './reducerManager'
 import { $api } from "shared/api/api";
 import { To } from "@remix-run/router";
 import { NavigateOptions } from "react-router/dist/lib/context";
+import { CombinedState } from "redux";
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -18,6 +19,7 @@ export function createReduxStore(
     user: userReducer
   }
 
+  // Code splitting для Редюсеров, чтобы подгружать асинхронно нужные
   const reducerManager = createReducerManager(rootReducers)
 
   const extraArg: ThunkExtraArg = {
@@ -26,8 +28,7 @@ export function createReduxStore(
   }
 
   const store = configureStore({
-    // @ts-ignore
-    reducer: reducerManager.reduce as ReducersMapObject<StateSchema>,
+    reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
     devTools: __IS_DEV__,
     preloadedState: initialState,
     middleware: getDefaultMiddleware => getDefaultMiddleware({
