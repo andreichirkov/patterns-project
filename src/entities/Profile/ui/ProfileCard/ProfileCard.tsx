@@ -1,29 +1,54 @@
 import { classNames } from 'shared/lib/classNames/classNames'
 import { useTranslation } from 'react-i18next'
-import cls from './ProfileCard.module.scss'
-import { useSelector } from 'react-redux'
-import { getProfileData } from 'entities/Profile/model/selectors/getProfileData/getProfileData'
-import { getProfileError } from 'entities/Profile/model/selectors/getProfileError/getProfileError'
-import { getProfileIsLoading } from 'entities/Profile/model/selectors/getProfileIsLoading/getProfileIsLoading'
-import { Text } from 'shared/ui/Text/Text'
+import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import { Button, ButtonTheme } from 'shared/ui/Button/Button'
 import { Input } from 'shared/ui/Input/Input'
+import { Profile } from '../../model/types/profile'
+import { Loader } from 'shared/ui/Loader/Loader'
+import cls from './ProfileCard.module.scss'
 
 interface ProfileCardProps {
   className?: string
+  data?: Profile
+  isLoading?: boolean
+  error?: string
 }
 
-export const ProfileCard = ({ className }: ProfileCardProps) => {
+export const ProfileCard = (props: ProfileCardProps) => {
+  const { className, data, isLoading, error } = props
   const { t } = useTranslation('profile')
-  const data = useSelector(getProfileData)
-  const error = useSelector(getProfileError)
-  const isLoading = useSelector(getProfileIsLoading)
+
+  if (isLoading) {
+    return (
+      <div
+        className={classNames(cls.ProfileCard, { [cls.loading]: true }, [
+          className
+        ])}>
+        <Loader />
+      </div>
+    )
+  }
+
+  if (error) {
+    return (
+      <div className={classNames(cls.ProfileCard, {}, [className, cls.error])}>
+        <Text
+          title={t('Произошла ошибка при загрузке профиля')}
+          text={t('Попробуйте обновить страницу')}
+          theme={TextTheme.ERROR}
+          align={TextAlign.CENTER}
+        />
+      </div>
+    )
+  }
 
   return (
     <div className={classNames(cls.ProfileCard, {}, [className])}>
       <div className={cls.header}>
         <Text title={t('Профиль')} />
-        <Button theme={ButtonTheme.OUTLINE} className={cls.editBtn}>{t('Редактировать')}</Button>
+        <Button theme={ButtonTheme.OUTLINE} className={cls.editBtn}>
+          {t('Редактировать')}
+        </Button>
       </div>
       <div className={cls.data}>
         <Input

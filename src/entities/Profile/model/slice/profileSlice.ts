@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Profile, ProfileSchema } from "../types/profile";
-import { LoginSchema } from 'features/AuthByUsername'
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData'
 
 const initialState: ProfileSchema = {
