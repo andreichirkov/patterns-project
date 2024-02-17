@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Profile, ProfileSchema } from "../types/profile";
 import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData'
+import { action } from "@storybook/addon-actions";
 
 const initialState: ProfileSchema = {
   isLoading: false,
@@ -12,7 +13,17 @@ const initialState: ProfileSchema = {
 export const profileSlice = createSlice({
   name: 'profile',
   initialState,
-  reducers: {},
+  reducers: {
+    setReadonly: (state, action: PayloadAction<boolean>) => {
+      state.readonly = action.payload
+    },
+    updateProfile: (state, action: PayloadAction<Profile>) => {
+      state.data = {
+        ...state.data,
+        ...action.payload
+      }
+    }
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchProfileData.pending, state => {
