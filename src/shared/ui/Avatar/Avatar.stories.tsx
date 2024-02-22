@@ -4,7 +4,7 @@ import { Avatar } from "shared/ui/Avatar/Avatar";
 import AvatarImg from './avatar-for-storybook.jpeg'
 
 export default {
-  title: "shared/AppLink",
+  title: "shared/Avatar",
   component: Avatar,
   argTypes: {
     backgroundColor: { control: "color" }
