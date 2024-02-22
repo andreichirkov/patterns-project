@@ -4,6 +4,7 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text'
 import { Input } from 'shared/ui/Input/Input'
 import { Profile } from '../../model/types/profile'
 import { Loader } from 'shared/ui/Loader/Loader'
+import { Avatar } from 'shared/ui/Avatar/Avatar'
 import cls from './ProfileCard.module.scss'
 
 interface ProfileCardProps {
@@ -12,8 +13,12 @@ interface ProfileCardProps {
   isLoading?: boolean
   error?: string
   readonly?: boolean
-  onChangeFirstName: (value?: string) => void
-  onChangeLastName: (value?: string) => void
+  onChangeFirstName?: (value?: string) => void
+  onChangeLastName?: (value?: string) => void
+  onChangeAge?: (value?: string) => void
+  onChangeCity?: (value?: string) => void
+  onChangeUsername?: (value?: string) => void
+  onChangeAvatar?: (value?: string) => void
 }
 
 export const ProfileCard = (props: ProfileCardProps) => {
@@ -24,7 +29,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
     error,
     readonly,
     onChangeFirstName,
-    onChangeLastName
+    onChangeLastName,
+    onChangeAge,
+    onChangeCity,
+    onChangeUsername,
+    onChangeAvatar
   } = props
   const { t } = useTranslation('profile')
 
@@ -54,6 +63,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
   return (
     <div className={classNames(cls.ProfileCard, {}, [className])}>
+      {data?.avatar && (
+        <div className={cls.avatarWrapper}>
+          <Avatar src={data?.avatar} />
+        </div>
+      )}
       <div className={cls.data}>
         <Input
           value={data?.first}
@@ -67,6 +81,34 @@ export const ProfileCard = (props: ProfileCardProps) => {
           placeholder={t('Ваша фамилия')}
           className={cls.input}
           onChange={onChangeLastName}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.age}
+          placeholder={t('Ваш возраст')}
+          className={cls.input}
+          onChange={onChangeAge}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.city}
+          placeholder={t('Город')}
+          className={cls.input}
+          onChange={onChangeCity}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.username}
+          placeholder={t('Введите никнейм')}
+          className={cls.input}
+          onChange={onChangeUsername}
+          readonly={readonly}
+        />
+        <Input
+          value={data?.avatar}
+          placeholder={t('Введите ссылку на аватар')}
+          className={cls.input}
+          onChange={onChangeAvatar}
           readonly={readonly}
         />
       </div>

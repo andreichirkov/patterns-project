@@ -8,19 +8,19 @@ import { CombinedState } from 'redux'
 
 import { CounterSchema } from 'entities/Counter'
 import { UserSchema } from 'entities/User'
-import { ProfileSchema } from "entities/Profile";
+import { ProfileSchema } from 'entities/Profile'
 
 import { LoginSchema } from 'features/AuthByUsername'
-import { AxiosInstance } from "axios";
-import { To } from "@remix-run/router";
-import { NavigateOptions } from "react-router/dist/lib/context";
+import { AxiosInstance } from 'axios'
+import { To } from '@remix-run/router'
+import { NavigateOptions } from 'react-router/dist/lib/context'
 
 export interface StateSchema {
   counter: CounterSchema
   user: UserSchema
 
   // Асинхронные редюсеры
-  loginForm?: LoginSchema,
+  loginForm?: LoginSchema
   profile?: ProfileSchema
 }
 
@@ -44,37 +44,7 @@ export interface ThunkExtraArg {
 
 // Меняестся здесть только Реджект Вэлью
 export interface ThinkConfig<T> {
-  rejectValue: T,
+  rejectValue: T
   extra: ThunkExtraArg
+  state: StateSchema
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

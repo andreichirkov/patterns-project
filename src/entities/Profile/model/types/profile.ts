@@ -1,4 +1,4 @@
-import { Country, Currency } from "shared/const/common";
+import { Country, Currency } from 'shared/const/common'
 
 export interface Profile {
   first?: string
@@ -12,8 +12,9 @@ export interface Profile {
 }
 
 export interface ProfileSchema {
-  data?: Profile,
-  isLoading: boolean,
-  error?: string,
+  data?: Profile
+  form?: Profile
+  isLoading: boolean
+  error?: string
   readonly: boolean
 }
