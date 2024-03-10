@@ -8,6 +8,7 @@ export interface SidebarItemType {
   path: string
   text: string
   Icon: FC<SVGProps<SVGSVGElement>> // SVG Loader делает такой тип
+  authOnly?: boolean
 }
 
 export const SidebarItemList: SidebarItemType[] = [
@@ -24,6 +25,7 @@ export const SidebarItemList: SidebarItemType[] = [
   {
     path: RoutePath.profile,
     Icon: ProfileIcon,
-    text: 'Профиль'
+    text: 'Профиль',
+    authOnly: true
   }
 ]
