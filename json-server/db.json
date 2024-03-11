@@ -21,9 +21,9 @@
     }
   ],
   "profile": {
-    "first": "Andrei",
+    "first": "Андерй",
     "lastname": "Chirkov2",
-    "age": "33",
+    "age": 23,
     "currency": "USD",
     "country": "Russia",
     "city": "SPB",
