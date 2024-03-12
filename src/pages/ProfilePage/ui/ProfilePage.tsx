@@ -50,7 +50,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
   }
 
   useEffect(() => {
-    dispatch(fetchProfileData())
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData())
+    }
   }, [])
 
   const onChangeFirstName = useCallback((value?: string) => {
@@ -91,7 +93,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         <ProfilePageHeader />
         {validateErrors?.length &&
           validateErrors.map(error => (
-            <Text theme={TextTheme.ERROR} text={validateErrorTranslates[error]} key={error} />
+            <Text
+              theme={TextTheme.ERROR}
+              text={validateErrorTranslates[error]}
+              key={error}
+            />
           ))}
         <ProfileCard
           data={formData}

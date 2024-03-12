@@ -10,6 +10,7 @@ export default {
     // Переменная должна назваться так же как в webpack, чтобы не было путаницы
     __IS_DEV__: true,
     __API__: '',
+    __PROJECT__: 'jest'
   },
   clearMocks: true,
   testEnvironment: "jsdom",
