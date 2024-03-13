@@ -5,6 +5,7 @@ import { Currency } from "entities/Currency";
 
 const data = {
   username: 'admin',
+  first: 'Name',
   lastname: 'surname',
   age: 32,
   country: Country.Ukraine,

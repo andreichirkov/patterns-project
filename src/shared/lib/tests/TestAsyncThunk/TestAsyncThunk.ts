@@ -25,8 +25,11 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
   navigate: jest.MockedFn<any>
 
   // То есть принимаемый actionCreator - это функция
-  constructor(actionCreator: ActionCreatorType<Return, Arg, RejectedValue>) {
-    this.getState = jest.fn()
+  constructor(
+    actionCreator: ActionCreatorType<Return, Arg, RejectedValue>,
+    state?: DeepPartial<StateSchema>
+  ) {
+    this.getState = jest.fn(() => state as StateSchema)
     this.dispatch = jest.fn()
     this.actionCreator = actionCreator
     this.api = mockedAxios
