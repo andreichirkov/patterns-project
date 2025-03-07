@@ -17,7 +17,7 @@ function App() {
   }, [dispatch])
 
   return (
-    <div className={classNames('app second', {}, [theme])}>
+    <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">
         <Navbar />
         <div className="content-page">
